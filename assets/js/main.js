@@ -1,10 +1,5 @@
 /* Mada Overseas — main.js */
 
-// SITE_ROOT is set by each page before this script loads:
-//   root pages (index/about/contact/enquiry) → window.SITE_ROOT = './'
-//   pages/export/* or pages/import/*         → window.SITE_ROOT = '../../'
-const R = (typeof window.SITE_ROOT !== 'undefined') ? window.SITE_ROOT : './';
-
 // ── SVG icon helpers ──────────────────────────────────────────────────────────
 const _ico = (paths, cls) => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
 const NAV  = paths => _ico(paths, 'nav-icon');
@@ -14,8 +9,8 @@ const STAR = () => _ico('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18
 // ── Sidebar HTML ─────────────────────────────────────────────────────────────
 const SIDEBAR_HTML = `
 <div class="sb-logo">
-  <a href="${R}index.html">
-    <img src="${R}assets/images/logo/logo.2x.png" alt="Mada Overseas — International Trading"
+  <a href="/">
+    <img src="/assets/images/logo/logo.2x.png" alt="Mada Overseas — International Trading"
          width="160" height="23"
          onerror="this.style.display='none'">
     <div class="sb-tag">International Trading</div>
@@ -23,10 +18,10 @@ const SIDEBAR_HTML = `
 </div>
 <nav class="sb-nav" aria-label="Main navigation">
   <div class="nav-item">
-    <a href="${R}index.html" class="nl">${NAV('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>')} Home</a>
+    <a href="/" class="nl">${NAV('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>')} Home</a>
   </div>
   <div class="nav-item">
-    <a href="${R}about.html" class="nl">${NAV('<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>')} About Us</a>
+    <a href="/about" class="nl">${NAV('<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>')} About Us</a>
   </div>
   <div class="nav-item">
     <button class="nl" data-toggle aria-expanded="false" aria-controls="nav-commodities">
@@ -38,9 +33,9 @@ const SIDEBAR_HTML = `
           ${NAV('<path d="M12 5v14"/><path d="m5 12 7 7 7-7"/>')} Import ${CHEV()}
         </button>
         <div class="nd2" id="nav-import">
-          <a href="${R}pages/import/rice.html">Rice</a>
-          <a href="${R}pages/import/sugar.html">Sugar</a>
-          <a href="${R}pages/import/wheat-flour.html">Wheat Flour / Farine</a>
+          <a href="/import/rice">Rice</a>
+          <a href="/import/sugar">Sugar</a>
+          <a href="/import/wheat-flour">Wheat Flour / Farine</a>
         </div>
       </div>
       <div class="nd1-group">
@@ -48,33 +43,33 @@ const SIDEBAR_HTML = `
           ${NAV('<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>')} Export ${CHEV()}
         </button>
         <div class="nd2" id="nav-export">
-          <a href="${R}pages/export/cloves.html">Cloves ${STAR()}</a>
-          <a href="${R}pages/export/vanilla.html">Vanilla ${STAR()}</a>
-          <a href="${R}pages/export/kidney-beans.html">White Kidney Beans ${STAR()}</a>
-          <a href="${R}pages/export/raw-cashew.html">Raw Cashew ${STAR()}</a>
-          <a href="${R}pages/export/cinnamon.html">Cinnamon / Cassia ${STAR()}</a>
-          <a href="${R}pages/export/mud-crab.html">Mud Crabs ${STAR()}</a>
-          <a href="${R}pages/export/minerals.html">Ores &amp; Minerals</a>
+          <a href="/export/cloves">Cloves ${STAR()}</a>
+          <a href="/export/vanilla">Vanilla ${STAR()}</a>
+          <a href="/export/kidney-beans">White Kidney Beans ${STAR()}</a>
+          <a href="/export/raw-cashew">Raw Cashew ${STAR()}</a>
+          <a href="/export/cinnamon">Cinnamon / Cassia ${STAR()}</a>
+          <a href="/export/mud-crab">Mud Crabs ${STAR()}</a>
+          <a href="/export/minerals">Ores &amp; Minerals</a>
         </div>
       </div>
     </div>
   </div>
   <div class="sb-sep"></div>
   <div class="nav-item">
-    <a href="${R}enquiry.html" class="nl">${NAV('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>')} Enquiry / Query</a>
+    <a href="/enquiry" class="nl">${NAV('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>')} Enquiry / Query</a>
   </div>
   <div class="nav-item">
-    <a href="${R}contact.html" class="nl">${NAV('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 9.81a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>')} Contact Us</a>
+    <a href="/contact" class="nl">${NAV('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 9.81a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>')} Contact Us</a>
   </div>
 </nav>
 <div class="sb-foot">
   &copy; 2026 Mada Overseas<br>
   Est. 2006 &middot; Antananarivo, Madagascar
   <div class="sb-legal">
-    <a href="${R}pages/legal/privacy-policy.html">Privacy</a>
-    <a href="${R}pages/legal/terms-conditions.html">Terms</a>
-    <a href="${R}pages/legal/shipping-policy.html">Shipping</a>
-    <a href="${R}pages/legal/disclaimer.html">Disclaimer</a>
+    <a href="/legal/privacy-policy">Privacy</a>
+    <a href="/legal/terms-conditions">Terms</a>
+    <a href="/legal/shipping-policy">Shipping</a>
+    <a href="/legal/disclaimer">Disclaimer</a>
   </div>
 </div>
 `;
