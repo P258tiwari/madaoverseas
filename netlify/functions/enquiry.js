@@ -122,11 +122,8 @@ exports.handler = async function (event) {
     Phone: { phone_number: phone },
     Country: richText(country),
     Message: richText(message),
-    'Source Page': richText(sourcePage),
-    'Form Type': { select: { name: 'Enquiry' } },
-    Status: { select: { name: 'New' } },
-    'Created Time': { date: { start: new Date().toISOString() } },
-    'Product / Service Interest': richText(interest),
+    'Submitted At': { date: { start: new Date().toISOString() } },
+    Product: richText(interest),
   };
 
   if (company) properties.Company = richText(company);
