@@ -113,18 +113,13 @@ exports.handler = async function (event) {
   const properties = {
     Name: { title: [{ text: { content: name } }] },
     Email: { email },
+    Subject: richText(subject),
     Message: richText(message),
-    'Source Page': richText(sourcePage),
-    'Form Type': { select: { name: 'Contact' } },
-    Status: { select: { name: 'New' } },
-    'Created Time': { date: { start: new Date().toISOString() } },
-    'Product / Service Interest': richText(subject),
+    'Submitted At': { date: { start: new Date().toISOString() } },
   };
 
   if (phone) properties.Phone = { phone_number: phone };
   if (whatsapp) properties.WhatsApp = { phone_number: whatsapp };
-  if (company) properties.Company = richText(company);
-  if (country) properties.Country = richText(country);
 
   const payload = { parent: NOTION_PARENT, properties };
 
