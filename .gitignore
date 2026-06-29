@@ -1,0 +1,13 @@
+# Environment secrets — never commit
+.env
+.env.local
+
+# Node
+node_modules/
+
+# Netlify local dev
+.netlify/
+
+# OS noise
+.DS_Store
+Thumbs.db
