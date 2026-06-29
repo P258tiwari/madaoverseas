@@ -486,7 +486,7 @@ textarea.f { resize: vertical; min-height: 110px; }
 .mission-card ul { padding-left: 18px; font-size: .84rem; color: var(--muted); line-height: 1.85; }
 .mission-card p { font-size: .84rem; color: var(--muted); line-height: 1.75; }
 
-.dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 22px; }
+.dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 22px; }
 .dir-card {
   background: var(--white); border-radius: var(--r);
   border: 1px solid var(--border); padding: 26px; box-shadow: var(--sh);
