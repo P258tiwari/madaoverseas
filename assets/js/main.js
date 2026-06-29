@@ -130,9 +130,9 @@ document.addEventListener('click', e => {
 });
 
 // ── Active link highlight ─────────────────────────────────────────────────────
-const page = location.pathname.split('/').pop() || 'index.html';
+const page = location.pathname.replace(/\/$/, '') || '/';
 document.querySelectorAll('.nl, .nd1-btn, .nd2 a').forEach(link => {
-  const href = (link.getAttribute('href') || '').split('/').pop();
+  const href = (link.getAttribute('href') || '').replace(/\/$/, '') || '/';
   if (href === page) {
     link.classList.add('active');
     if (link.hasAttribute('href')) link.setAttribute('aria-current', 'page');
